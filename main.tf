@@ -1,3 +1,11 @@
+module "vpc" {
+  source = "./modules/vpc"
+  vpc_cidr = var.vpc_cidr
+  public_subnet_cidrs = var.public_subnet_cidrs
+  private_subnet_cidrs = var.private_subnet_cidrs
+  availability_zones = var.availability_zones
+}
+
 resource "aws_key_pair" "test_ec2" {
   key_name   = var.key_name
   public_key = var.ssh_public_key
